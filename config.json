@@ -20,8 +20,8 @@
         "https://rpc.mainnet.chain.robinhood.com"
       ],
       "explorerUrl": "https://robinhoodchain.blockscout.com",
-      "marketplaceContract": "0x35D3df3b048E7933f6cf0199ef521790459a6875",
-      "deployBlock": 69597212,
+      "marketplaceContract": "0xaf2513E2A500210207f8F313De0275913408317B",
+      "deployBlock": 72032142,
       "indexerUrl": "",
       "stockTokenApi": "/api/rh-assets",
       "faucetUrl": "",
@@ -100,8 +100,8 @@
   "tokenPage": {
     "name": "AERENT",
     "ticker": "$AERENT",
-    "contractAddress": "",
-    "buyUrl": "",
+    "contractAddress": "0xeA25747f0F4aB4f749948C73d6DCd40E86DB700d",
+    "buyUrl": "https://www.ponsfamily.com/launchpad/0xeA25747f0F4aB4f749948C73d6DCd40E86DB700d",
     "dexScreenerUrl": "https://dexscreener.com/search?q={ca}",
     "xUrl": "https://x.com/AerentMarket"
   }

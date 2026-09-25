@@ -1,0 +1,14 @@
+contracts
+test
+script
+lib
+out
+cache
+broadcast
+indexer
+foundry.toml
+*.sqlite
+*.md
+!README.md
+.github
+deploy

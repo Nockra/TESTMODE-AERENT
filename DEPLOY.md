@@ -16,12 +16,14 @@ Order matters: testnet first, then mainnet.
    ```
 4. From the Safe, call `configureAsset` for each token. Take feed proxy addresses, decimals and heartbeats from the Chainlink Robinhood feeds page, never from memory. Take Stock Token addresses only from Robinhood's registry.
    Suggested starting parameters:
-   | Class | minCollateralRatioBps | liquidationRatioBps | liquidationBonusBps |
-   | --- | --- | --- | --- |
-   | Stock Token | 15000 | 12000 | 500 |
-   | WETH | 16000 | 12500 | 600 |
-   | Stablecoin rented against WETH | 11000 | 10500 | 200 |
-   | Experimental (no feed) | fixed collateral only | none | none |
+   | Class | minCollateralRatioBps | liquidationRatioBps | liquidationBonusBps | maxCollateralRatioBps | maxFeeBps |
+   | --- | --- | --- | --- | --- | --- |
+   | Stock Token | 15000 | 12000 | 500 | 20000 | 1000 |
+   | WETH | 16000 | 12500 | 600 | 22000 | 1000 |
+   | Stablecoin rented against WETH | 11000 | 10500 | 200 | 15000 | 500 |
+   | Experimental (no feed) | fixed collateral only | none | none | none | none |
+
+   The last two columns are the renter protections: collateral may not exceed the ceiling, and the fee may not exceed that share of the asset's value for the term.
 5. Do not set a sequencer uptime feed: Chainlink does not publish one for Robinhood Chain.
 6. Run the full testnet beta (see `LAUNCH.md`), then repeat on mainnet with `https://robinhoodchain.blockscout.com/api/`.
 

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#5eaaf0" />
+  <title>AERENT | Rent onchain assets on Robinhood Chain</title>
+  <meta name="description" content="Rent Robinhood Stock Tokens, stablecoins, crypto and ERC-4907 NFTs against collateral, with oracle pricing and permissionless liquidations." />
+  <link rel="canonical" href="https://aerentmarketplace.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AERENT | Rent onchain assets" />
+  <meta property="og:description" content="Rent Stock Tokens, stablecoins, crypto and NFTs on Robinhood Chain." />
+  <meta property="og:url" content="https://aerentmarketplace.com/" />
+  <meta property="og:image" content="https://aerentmarketplace.com/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://aerentmarketplace.com/assets/og-image.jpg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/aerent-icon-32.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/aerent-icon-64.png" />
+  <link rel="apple-touch-icon" href="/assets/aerent-icon-180.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="preload" href="/assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preconnect" href="https://esm.sh" crossorigin />
+  <link rel="preconnect" href="https://auth.privy.io" crossorigin />
+  <link rel="dns-prefetch" href="https://esm.sh" />
+  <link rel="dns-prefetch" href="https://auth.privy.io" />
+  <link rel="preload" href="/assets/sky.webp" as="image" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="module" src="/js/app.js?v=perf-20260923"></script>
+</head>
+<body>
+  <div class="boot" id="boot" aria-hidden="true"><img src="/assets/mark-light.webp" alt="" /></div>
+
+  <div class="desktop" id="desktop">
+    <header class="menubar">
+      <button class="brand" data-open="market" aria-label="AERENT market">
+        <img src="/assets/mark-dark.webp" alt="" width="30" height="30" />
+        <span>AERENT</span>
+      </button>
+      <nav class="nav" aria-label="Primary">
+        <button data-open="market">Market</button>
+        <button data-open="list">List</button>
+        <button data-open="positions">Positions</button>
+        <button data-open="stocks">Stock Tokens</button>
+        <button data-open="docs">Docs</button>
+        <button data-open="aerent">$AERENT</button>
+      </nav>
+      <div class="menu-right">
+        <span class="tag-preview" id="previewTag" hidden title="No marketplace contract is configured for this network. Actions run in a local simulation.">Preview</span>
+        <button class="chip-net" id="netChip" data-open="settings" aria-label="Network status and settings"><i></i><span class="lbl" id="netLabel">Robinhood Chain</span></button>
+        <a class="top-x-btn" id="xTopBtn" href="https://x.com/AerentMarket" target="_blank" rel="noopener noreferrer" aria-label="AERENT on X"></a>
+        <button class="btn btn-lime wallet-btn" id="walletBtn">Connect wallet</button>
+        <span class="clock" id="clock"></span>
+      </div>
+    </header>
+
+    <main class="stage" id="stage">
+      <nav class="apps" id="apps" aria-label="Applications"></nav>
+
+      <section class="hero" aria-labelledby="heroTitle">
+        <h1 id="heroTitle">Rent the asset.<br />Keep your collateral.</h1>
+        <p>Borrow Robinhood Stock Tokens, stablecoins, crypto and NFTs for a fixed term. Prices come from Chainlink, positions stay overcollateralised, and every exit works even when the market is paused.</p>
+        <p class="trust-line">Connecting a wallet only reads your public address. Nothing moves without a transaction you sign, and approvals are for the exact amount shown.</p>
+        <div class="actions">
+          <button class="btn btn-lime btn-lg" data-open="market">Browse the market</button>
+          <button class="btn btn-glass btn-lg" data-open="list">List an asset</button>
+        </div>
+        <div class="facts" id="heroFacts">
+          <div><strong id="factOpen">0</strong><small>Open listings</small></div>
+          <div><strong id="factValue">$0</strong><small>Available to rent</small></div>
+          <div><strong id="factActive">0</strong><small>Active rentals</small></div>
+          <div><strong id="factEscrow">$0</strong><small>Value in escrow</small></div>
+        </div>
+      </section>
+
+      <div class="orbit" id="orbit" aria-hidden="false">
+        <div class="mark"><img src="/assets/mark-light.webp" alt="AERENT" /></div>
+      </div>
+
+      <div class="windows" id="windows"></div>
+    </main>
+
+    <nav class="dock" id="dock" aria-label="Dock"></nav>
+  </div>
+
+  <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+  <noscript><p style="position:fixed;inset:auto 0 0 0;padding:16px;background:#fff;text-align:center;font-weight:700">AERENT needs JavaScript to connect a wallet.</p></noscript>
+</body>
+</html>

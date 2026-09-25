@@ -1,0 +1,108 @@
+{
+  "appName": "AERENT Marketplace",
+  "brandName": "AERENT",
+  "domain": "aerentmarketplace.com",
+  "description": "Rent Robinhood Stock Tokens, stablecoins, crypto and ERC-4907 NFTs onchain.",
+  "xUrl": "https://x.com/AerentMarket",
+  "securityEmail": "security@aerentmarketplace.com",
+  "defaultNetwork": "mainnet",
+  "features": {
+    "preview": true
+  },
+  "networks": {
+    "mainnet": {
+      "label": "Robinhood Chain",
+      "shortLabel": "Mainnet",
+      "chainId": 4663,
+      "chainIdHex": "0x1237",
+      "rpcUrls": [
+        "https://robinhood-mainnet.g.alchemy.com/v2/alch_vK0YJIUG0TDeIba7Adyc1",
+        "https://rpc.mainnet.chain.robinhood.com"
+      ],
+      "explorerUrl": "https://robinhoodchain.blockscout.com",
+      "marketplaceContract": "0x35D3df3b048E7933f6cf0199ef521790459a6875",
+      "deployBlock": 69597212,
+      "indexerUrl": "",
+      "stockTokenApi": "/api/rh-assets",
+      "faucetUrl": "",
+      "bridgeDocsUrl": "https://docs.robinhood.com/chain/bridging",
+      "nativeCurrency": {
+        "name": "Ether",
+        "symbol": "ETH",
+        "decimals": 18
+      },
+      "tokens": [
+        {
+          "address": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+          "symbol": "USDG",
+          "name": "Global Dollar",
+          "decimals": 6,
+          "class": "stablecoin",
+          "logo": "/assets/tokens/usdg.png"
+        },
+        {
+          "address": "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73",
+          "symbol": "WETH",
+          "name": "Wrapped Ether",
+          "decimals": 18,
+          "class": "crypto",
+          "logo": "/assets/tokens/weth.png"
+        }
+      ]
+    },
+    "testnet": {
+      "label": "Robinhood Chain Testnet",
+      "shortLabel": "Testnet",
+      "chainId": 46630,
+      "chainIdHex": "0xb626",
+      "rpcUrls": [
+        "https://rpc.testnet.chain.robinhood.com"
+      ],
+      "explorerUrl": "https://explorer.testnet.chain.robinhood.com",
+      "marketplaceContract": "",
+      "deployBlock": 0,
+      "indexerUrl": "",
+      "stockTokenApi": "",
+      "faucetUrl": "https://faucet.testnet.chain.robinhood.com",
+      "bridgeDocsUrl": "https://docs.robinhood.com/chain/bridging",
+      "nativeCurrency": {
+        "name": "Ether",
+        "symbol": "ETH",
+        "decimals": 18
+      },
+      "tokens": []
+    },
+    "local": {
+      "label": "Local devnet",
+      "shortLabel": "Local",
+      "hidden": true,
+      "chainId": 31337,
+      "chainIdHex": "0x7a69",
+      "rpcUrls": [
+        "http://127.0.0.1:8545"
+      ],
+      "explorerUrl": "",
+      "marketplaceContract": "",
+      "deployBlock": 0,
+      "indexerUrl": "",
+      "stockTokenApi": "",
+      "faucetUrl": "",
+      "bridgeDocsUrl": "",
+      "nativeCurrency": {
+        "name": "Ether",
+        "symbol": "ETH",
+        "decimals": 18
+      },
+      "tokens": []
+    }
+  },
+  "privyAppId": "cmucm7tgl001w0bl2zhwgd6tz",
+  "tokenPage": {
+    "name": "AERENT",
+    "ticker": "$AERENT",
+    "contractAddress": "",
+    "buyUrl": "",
+    "dexScreenerUrl": "https://dexscreener.com/search?q={ca}",
+    "xUrl": "https://x.com/AerentMarket"
+  }
+}

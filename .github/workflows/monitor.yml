@@ -1,0 +1,22 @@
+name: AERENT monitor
+# Free health check every 30 minutes. Needs repository variable AERENT_MARKETPLACE,
+# and optional secrets RPC_URLS (comma separated) and ALERT_WEBHOOK (Discord or Slack webhook).
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+jobs:
+  check:
+    if: ${{ vars.AERENT_MARKETPLACE != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node indexer/watch-once.mjs
+        env:
+          MARKETPLACE: ${{ vars.AERENT_MARKETPLACE }}
+          RPC_URLS: ${{ secrets.RPC_URLS || 'https://rpc.mainnet.chain.robinhood.com' }}
+          ALERT_WEBHOOK: ${{ secrets.ALERT_WEBHOOK }}

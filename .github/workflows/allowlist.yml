@@ -1,0 +1,39 @@
+name: Build asset allowlist
+# Run from the Actions tab. Produces safe-batch.json to load into Safe Transaction Builder.
+on:
+  workflow_dispatch:
+    inputs:
+      market:
+        description: AerentMarketplace contract address
+        required: true
+      safe:
+        description: Owner Safe address
+        required: true
+      stocks:
+        description: Stock Tokens to allowlist (comma separated)
+        default: AAPL,NVDA,TSLA,MSFT,AMZN,GOOGL,META
+      weth:
+        description: Also allowlist WETH (true or false)
+        default: "true"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify tokens and feeds, build batch
+        env:
+          RPC: ${{ secrets.RPC_URL || 'https://rpc.mainnet.chain.robinhood.com' }}
+        run: |
+          node script/configure-assets.mjs --market "${{ inputs.market }}" --safe "${{ inputs.safe }}" \
+            --rpc "$RPC" --stocks "${{ inputs.stocks }}" --weth "${{ inputs.weth }}" > safe-batch.json 2> report.txt
+          { echo '### Verified assets'; echo '```'; cat report.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+      - name: Show report on failure
+        if: failure()
+        run: cat report.txt || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: safe-batch
+          path: safe-batch.json

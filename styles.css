@@ -157,22 +157,23 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 /* ---------------------------------------------------------------- hero on the desktop */
 .stage { position: absolute; inset: var(--menubar-h) 0 var(--dock-h) 0; overflow: hidden; }
 .apps {
-  position: absolute; left: 22px; top: 22px; display: flex; flex-direction: column; gap: 2px;
-  height: auto; z-index: 1;
+  /* wraps into a second column rather than clipping when the viewport is short */
+  position: absolute; left: 22px; top: 22px; display: flex; flex-direction: column; flex-wrap: wrap;
+  align-content: flex-start; gap: 2px 6px; max-height: calc(100% - 24px); z-index: 1;
 }
 .app-icon {
-  width: 88px; height: 86px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 6px;
+  width: 90px; height: clamp(74px, 8.4vh, 86px); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 5px;
   padding-top: 6px; border: 0; background: none; border-radius: 16px; color: #fff;
 }
 .app-icon .tile {
-  width: 54px; height: 54px; display: grid; place-items: center; border-radius: 16px;
+  width: clamp(46px, 5.2vh, 54px); height: clamp(46px, 5.2vh, 54px); display: grid; place-items: center; border-radius: 16px;
   background: linear-gradient(160deg, rgba(255, 255, 255, .85), rgba(255, 255, 255, .5));
   border: 1px solid rgba(255, 255, 255, .9); color: var(--ink);
   box-shadow: 0 10px 24px -12px rgba(8, 50, 100, .6), inset 0 1px 0 #fff;
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
 }
 .app-icon .tile .ic { width: 24px; height: 24px; }
-.app-icon span { font-size: 12.5px; font-weight: 700; text-shadow: 0 1px 8px rgba(5, 40, 90, .55); line-height: 1.15; }
+.app-icon span { font-size: 12px; overflow-wrap: anywhere; font-weight: 700; text-shadow: 0 1px 8px rgba(5, 40, 90, .55); line-height: 1.15; }
 .app-icon:hover .tile { background: #fff; }
 .app-icon:focus-visible { outline-offset: -2px; }
 
